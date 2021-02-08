@@ -1,0 +1,39 @@
+# Basics
+sudo apt-get update
+sudo apt-get install -y git tmux vim curl wget zip unzip htop
+
+# Nginx
+sudo apt-get install -y nginx
+
+# PHP
+sudo add-apt-repository -y ppa:nginx/development
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get update
+
+sudo apt-get install -y php7.2-fpm php7.2-cli php7.2-gd php7.2-mysql \
+       php7.2-pgsql php7.2-imap php-memcached php7.2-mbstring php7.2-xml php7.2-curl \
+       php7.2-bcmath php7.2-sqlite3 php7.2-xdebug
+       
+# Mysql
+sudo apt-get install -y mysql-server
+sudo mysql_secure_installation
+
+# New developer user on mysql
+CREATE USER 'developer'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'developer'@'localhost';
+FLUSH PRIVILEGES;
+       
+# Composer
+php -r "readfile('http://getcomposer.org/installer');" | sudo php -- --install-dir=/usr/bin/ --filename=composer
+
+# Node JS
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install nodejs
+
+# Certbot
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot python-certbot-nginx
