@@ -37,3 +37,41 @@ sudo add-apt-repository universe
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt-get update
 sudo apt-get install certbot python-certbot-nginx
+
+
+//aditionals info
+mysql -u user_name -p
+show databases
+use database_name
+show tables
+
+//git discard comit
+git reset --hard 7dbfc1d
+git add .
+git push --force origin dev
+
+//nginx config file setup
+ln -s /etc/nginx/sites-available/cstutorial.conf /etc/nginx/sites-enabled/
+
+
+//showing which serveice running which port
+netstat -tlpn
+
+apt install net-tools
+
+//mysql setup
+CREATE USER 'developer'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'developer'@'%';
+FLUSH PRIVILEGES;
+
+<Directory /var/www/html/git/public>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+    Allow from 111.111.111.111
+</Directory>
+
+
+
+
